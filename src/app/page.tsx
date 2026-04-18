@@ -1,6 +1,7 @@
 "use client";
 
 import Hero from "../components/sections/Hero";
+import VideoSection from "../components/sections/VideoSection";
 import WhoItsFor from "../components/sections/WhoItsFor";
 import Features from "../components/sections/Features";
 import Pricing from "../components/sections/Pricing";
@@ -64,6 +65,7 @@ export default function LandingPage() {
       </nav>
 
       <Hero />
+      <VideoSection />
       <WhoItsFor />
       <Features />
       <Pricing />

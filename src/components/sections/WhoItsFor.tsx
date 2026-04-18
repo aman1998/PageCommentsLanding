@@ -1,34 +1,27 @@
-import { Bug, Code, Palette, UserCheck } from "lucide-react";
+import { Bug, Code, Palette } from "lucide-react";
 import { Card } from "../ui/Card";
 
 const roles = [
   {
-    icon: Bug,
-    title: "QA Engineers & Testers",
+    icon: Palette,
+    title: "Design review",
     description:
-      "Pin bugs directly on localhost, staging, or live pages and review them with viewport context, screenshots, and clear status tracking.",
-    color: "bg-red-50 text-red-600",
+      "Comment on layout, spacing, hierarchy, and copy without leaving the page you are reviewing.",
+    color: "bg-violet-50 text-violet-700",
   },
   {
-    icon: Palette,
-    title: "Product Designers",
+    icon: Bug,
+    title: "QA passes",
     description:
-      "Leave visual feedback on layout, spacing, copy, and hierarchy without leaving the page you are reviewing.",
-    color: "bg-purple-50 text-purple-600",
+      "Pin issues on localhost, staging, or production and keep each pass organized in one session.",
+    color: "bg-rose-50 text-rose-700",
   },
   {
     icon: Code,
-    title: "Frontend Developers",
+    title: "Frontend handoff",
     description:
-      "Work through feedback in one sidebar, switch between device presets, and resolve comments as updates land.",
-    color: "bg-blue-50 text-blue-600",
-  },
-  {
-    icon: UserCheck,
-    title: "Project Managers",
-    description:
-      "Organize review sessions by site, track progress across comments, and export clean PDF summaries for stakeholders.",
-    color: "bg-green-50 text-green-600",
+      "Keep developer feedback tied to the UI so fixes are clearer, faster, and easier to verify.",
+    color: "bg-sky-50 text-sky-700",
   },
 ];
 
@@ -41,21 +34,17 @@ export default function WhoItsFor() {
             Use cases
           </p>
           <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
-            Made for review cycles that happen in the browser.
+            Built for teams that review work in the browser.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-            Keep design feedback, QA findings, and sign-off notes attached to
-            the page instead of scattering them across screenshots and chat
-            threads.
+            SiteReview fits the moments where visual feedback is easiest to
+            understand directly on the page, not in a loose thread of messages.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
           {roles.map((role, index) => (
-            <Card
-              key={index}
-              className="flex h-full flex-col"
-            >
+            <Card key={index} className="flex h-full flex-col">
               <div
                 className={`mb-6 flex h-12 w-12 items-center justify-center rounded-2xl ${role.color}`}
               >

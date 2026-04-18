@@ -4,10 +4,10 @@ const faqItems = [
   {
     question: "Where is my review data stored?",
     answer:
-      "Project documentation describes local browser storage and IndexedDB as the primary data layer. That means comments, sessions, templates, and related review data stay in the browser by default.",
+      "Project documentation describes local browser storage and IndexedDB as the primary data layer, so comments, sessions, templates, and related review data stay in the browser by default.",
   },
   {
-    question: "Can I share feedback with someone who does not use the extension?",
+    question: "Can I share feedback with people who do not use the extension?",
     answer:
       "Yes. You can export a PDF report with comments, screenshots, and metadata when you need to share review output outside the extension.",
   },
@@ -19,12 +19,7 @@ const faqItems = [
   {
     question: "What is included in Free vs Pro?",
     answer:
-      "Free includes 10 comments per page, 10 PDF exports per day, 3 saved sites, 1 image per comment, the default template, and limited palettes and viewport presets. Pro removes those core limits and unlocks all templates, palettes, and presets.",
-  },
-  {
-    question: "What happens on highly dynamic pages or SPAs?",
-    answer:
-      "The extension is designed for on-page review, but very large DOM changes can still affect how precisely older comments map back to the page. For active product review cycles, it works best when the reviewed layout remains reasonably stable between passes.",
+      "Free covers lighter reviews with limits on comments, exports, saved sites, and images. Pro unlocks higher limits plus the full set of templates, palettes, and viewport presets with a one-time purchase.",
   },
 ];
 
@@ -36,7 +31,7 @@ export default function FAQ() {
           FAQ
         </p>
         <h2 className="mb-12 mt-4 text-center text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
-          Frequently Asked Questions
+          Questions before you install
         </h2>
         <Accordion items={faqItems} />
       </div>

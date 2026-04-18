@@ -7,29 +7,25 @@ const tiers = [
   {
     name: "Free",
     price: "$0",
-    description: "A practical starting point for personal reviews and small audits.",
+    description: "A simple starting point for smaller review cycles.",
     features: [
       "10 comments per page",
       "10 PDF exports per day",
-      "3 saved sites with comment history",
+      "3 saved sites with history",
       "1 image per comment",
-      "Default template and limited palettes",
-      "Limited device and viewport presets",
     ],
-    cta: "Install extension",
+    cta: "Start free",
     variant: "secondary" as const,
   },
   {
     name: "Pro",
     price: "$25",
-    description: "One-time purchase for heavier review workflows and more customization.",
+    description: "A one-time unlock for heavier team workflows.",
     features: [
-      "Unlimited comments, exports, and saved sites",
-      "Up to 5 images per comment",
-      "All custom templates",
-      "All accent palettes",
-      "All device and viewport presets",
-      "Local Pro unlock, no subscription wording",
+      "Unlimited comments and exports",
+      "Unlimited saved sites and sessions",
+      "More images, templates, palettes, and presets",
+      "No subscription language",
     ],
     cta: "Install and unlock Pro",
     popular: true,
@@ -46,22 +42,23 @@ export default function Pricing() {
             Pricing
           </p>
           <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
-            Clear plan limits without subscription language.
+            Start free and unlock more only if you need it.
           </h2>
           <p className="mt-4 text-lg leading-8 text-slate-600">
-            The landing now mirrors the product documentation: start free, then
-            unlock Pro with a one-time payment when you need higher limits.
+            The product keeps pricing simple: use the free plan for lighter
+            reviews, then move to Pro with a one-time purchase when your
+            workflow grows.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
           {tiers.map((tier, index) => (
             <div
               key={index}
-              className={`relative flex flex-col rounded-[32px] border p-8 shadow-[0_24px_70px_-36px_rgba(15,23,42,0.3)] ${tier.popular ? "border-slate-900 bg-slate-950 text-white" : "border-slate-200/80 bg-white/90 text-slate-950"}`}
+              className={`relative flex flex-col rounded-[32px] border p-8 ${tier.popular ? "border-slate-900 bg-slate-950 text-white shadow-[0_24px_70px_-42px_rgba(15,23,42,0.45)]" : "border-slate-200/80 bg-white/95 text-slate-950 shadow-[0_18px_50px_-38px_rgba(15,23,42,0.22)]"}`}
             >
               {tier.popular && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-900 shadow-sm">
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-900 shadow-[0_12px_24px_-18px_rgba(15,23,42,0.35)]">
                   Recommended
                 </span>
               )}
@@ -87,7 +84,7 @@ export default function Pricing() {
                 </p>
               </div>
 
-              <ul className="space-y-4 mb-10 flex-grow">
+              <ul className="mb-10 flex-grow space-y-4">
                 {tier.features.map((feature, fIndex) => (
                   <li
                     key={fIndex}
@@ -117,8 +114,8 @@ export default function Pricing() {
         </div>
 
         <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-7 text-slate-500">
-          Current product documentation describes the Pro plan as a local unlock
-          stored in the browser, with no subscription copy on the product side.
+          Pro is described in the product as a local unlock stored in the
+          browser, not a recurring subscription.
         </p>
       </div>
     </section>

@@ -12,11 +12,11 @@ const STORE_URL = "https://chromewebstore.google.com/detail/placeholder";
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-transparent text-slate-950">
-      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200/80 bg-white/75 backdrop-blur-xl">
+    <main className="min-h-screen bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_48%,#ffffff_100%)] text-slate-950">
+      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl">
         <div className="container mx-auto flex h-16 items-center justify-between px-6">
           <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-slate-950 text-sm font-semibold text-white shadow-sm">
+            <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-slate-950 text-sm font-semibold text-white">
               SR
             </div>
             <div>
@@ -69,21 +69,19 @@ export default function LandingPage() {
       <Pricing />
       <FAQ />
 
-      <section className="relative overflow-hidden px-6 pb-24 pt-6">
+      <section className="px-6 pb-24 pt-6">
         <div className="container mx-auto">
-          <div className="relative overflow-hidden rounded-[36px] border border-slate-200/80 bg-slate-950 px-8 py-14 text-center shadow-[0_30px_90px_-45px_rgba(15,23,42,0.5)] lg:px-14">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(129,140,248,0.28),transparent_45%)]" />
-            <div className="relative z-10 mx-auto max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-200">
-                Start reviewing with more context
+          <div className="rounded-[36px] border border-slate-200/80 bg-white/95 px-8 py-14 text-center shadow-[0_24px_70px_-46px_rgba(15,23,42,0.28)] lg:px-14">
+            <div className="mx-auto max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                Ready to try it
               </p>
-              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-white lg:text-5xl">
-                Keep comments, screenshots, and review sessions in one browser workflow.
+              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+                Review the page itself, not a pile of screenshots.
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                Install the extension, use the free plan for smaller reviews,
-                and unlock Pro when you need higher limits and more
-                customization.
+              <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+                Install SiteReview, start with the free plan, and keep your next
+                round of design, QA, or frontend feedback in one clean flow.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button
@@ -92,7 +90,6 @@ export default function LandingPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   size="lg"
-                  className="border-white bg-white text-slate-950 hover:bg-slate-100"
                 >
                   <Globe size={18} />
                   Add to Chrome
@@ -102,7 +99,6 @@ export default function LandingPage() {
                   href="#pricing"
                   variant="secondary"
                   size="lg"
-                  className="border-white/20 bg-white/10 text-white hover:bg-white/20"
                 >
                   Compare plans
                 </Button>
@@ -124,17 +120,14 @@ export default function LandingPage() {
                   SiteReview
                 </p>
                 <p className="text-sm text-slate-500">
-                  Chrome extension for anchored page feedback.
+                  Chrome extension for on-page website review.
                 </p>
               </div>
             </div>
 
             <div className="text-sm leading-7 text-slate-500 md:text-right">
               <p>Built for design review, QA passes, and frontend handoff.</p>
-              <p>
-                © 2026 SiteReview. Product copy reflects the current extension
-                documentation.
-              </p>
+              <p>© 2026 SiteReview.</p>
             </div>
           </div>
         </div>

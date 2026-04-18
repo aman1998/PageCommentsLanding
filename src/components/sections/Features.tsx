@@ -1,13 +1,8 @@
 import {
   Camera,
   History,
-  Palette,
-  PanelRight,
   MessageSquare,
-  Layout,
-  CheckCircle2,
   FileText,
-  Tags,
 } from "lucide-react";
 import { Card } from "../ui/Card";
 
@@ -16,55 +11,25 @@ const features = [
     icon: MessageSquare,
     title: "Anchored comments",
     description:
-      "Click directly on the page to leave comments with element context, priority, tags, and status.",
+      "Leave feedback exactly where it matters so everyone sees the issue in the right context.",
   },
   {
     icon: History,
-    title: "Sessions by site",
+    title: "Sessions by page or site",
     description:
-      "Keep multiple review sessions for the same origin and switch between them without losing context.",
-  },
-  {
-    icon: PanelRight,
-    title: "Sidebar workflow",
-    description:
-      "Review comments, jump back to pinned notes, and keep the current session organized from one sidebar.",
-  },
-  {
-    icon: Tags,
-    title: "Templates and tags",
-    description:
-      "Speed up repeated feedback with reusable templates while keeping notes structured with tags and priority.",
-  },
-  {
-    icon: Palette,
-    title: "Accent palettes",
-    description:
-      "Adjust the visual style of the extension UI with palette presets that match your preferred workflow.",
-  },
-  {
-    icon: Layout,
-    title: "Viewport presets",
-    description:
-      "Switch between device and viewport presets to leave feedback in the exact context you are reviewing.",
+      "Keep separate review passes organized without losing history or mixing feedback across rounds.",
   },
   {
     icon: Camera,
-    title: "Screenshot capture",
+    title: "Screenshots when words are not enough",
     description:
-      "Capture a focused area on the page and attach it to a comment when visual proof matters.",
+      "Capture a focused area and attach proof to a comment when visual detail matters.",
   },
   {
     icon: FileText,
-    title: "PDF Export",
+    title: "Clean PDF export",
     description:
-      "Generate a clean report with comments, screenshots, and review metadata that is easy to share outside the browser.",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Free and Pro limits",
-    description:
-      "Start with the free plan, then unlock higher limits, more templates, palettes, and device presets with Pro.",
+      "Turn a review session into a polished report with comments, images, and key metadata.",
   },
 ];
 
@@ -78,21 +43,20 @@ export default function Features() {
               Features
             </p>
             <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
-              Everything the extension handles during a review.
+              The essentials for fast review cycles.
             </h2>
             <p className="mt-4 max-w-xl text-lg leading-8 text-slate-600">
-              The workflow stays inside the browser: pin feedback, move through
-              sessions, capture screenshots, and export structured reports when
-              you need to share the result.
+              Instead of spreading review work across browser tabs, screenshots,
+              docs, and chat, SiteReview keeps the workflow in one place.
             </p>
 
-            <div className="mt-8 rounded-[28px] border border-slate-200/80 bg-white/80 p-6 shadow-sm">
+            <div className="mt-8 rounded-[28px] border border-slate-200/80 bg-white/95 p-6">
               <p className="text-sm font-semibold text-slate-900">
-                Local-first by default
+                Works where teams actually review
               </p>
               <p className="mt-2 text-sm leading-7 text-slate-600">
-                Product documentation describes browser storage and IndexedDB as
-                the main data layer, so the landing keeps that expectation clear.
+                Use it on localhost, staging, internal tools, and live websites
+                as long as the page is open in Chrome.
               </p>
             </div>
           </div>

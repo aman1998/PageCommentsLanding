@@ -1,5 +1,4 @@
-import React from "react";
-import { UserCheck, Code, Palette, Bug } from "lucide-react";
+import { Bug, Code, Palette, UserCheck } from "lucide-react";
 import { Card } from "../ui/Card";
 
 const roles = [
@@ -7,43 +6,47 @@ const roles = [
     icon: Bug,
     title: "QA Engineers & Testers",
     description:
-      "Create bug reports that stick. Pin issues directly on live staging URLs with exact viewport context. No more blurry screenshots.",
+      "Pin bugs directly on localhost, staging, or live pages and review them with viewport context, screenshots, and clear status tracking.",
     color: "bg-red-50 text-red-600",
   },
   {
     icon: Palette,
     title: "Product Designers",
     description:
-      "Leave visual feedback on layout, spacing, and typography without leaving the browser. Keep your dev handoff clean.",
+      "Leave visual feedback on layout, spacing, copy, and hierarchy without leaving the page you are reviewing.",
     color: "bg-purple-50 text-purple-600",
   },
   {
     icon: Code,
     title: "Frontend Developers",
     description:
-      "Clarify requirements and track changes. View exact viewport dimensions and browser data tied to every comment.",
+      "Work through feedback in one sidebar, switch between device presets, and resolve comments as updates land.",
     color: "bg-blue-50 text-blue-600",
   },
   {
     icon: UserCheck,
     title: "Project Managers",
     description:
-      "Review progress and sign off on features visually. Export PDF reports for stakeholders in one click.",
+      "Organize review sessions by site, track progress across comments, and export clean PDF summaries for stakeholders.",
     color: "bg-green-50 text-green-600",
   },
 ];
 
 export default function WhoItsFor() {
   return (
-    <section className="py-24 bg-gray-50/50">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Built for high-performance teams.
+    <section id="use-cases" className="px-6 py-24">
+      <div className="container mx-auto">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+            Use cases
+          </p>
+          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+            Made for review cycles that happen in the browser.
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Stop juggling spreadsheets and Slack threads. html-comments brings
-            everyone into the browser for faster sign-offs.
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+            Keep design feedback, QA findings, and sign-off notes attached to
+            the page instead of scattering them across screenshots and chat
+            threads.
           </p>
         </div>
 
@@ -51,17 +54,17 @@ export default function WhoItsFor() {
           {roles.map((role, index) => (
             <Card
               key={index}
-              className="flex flex-col h-full border-transparent hover:border-indigo-100"
+              className="flex h-full flex-col"
             >
               <div
-                className={`h-12 w-12 rounded-lg flex items-center justify-center mb-6 ${role.color}`}
+                className={`mb-6 flex h-12 w-12 items-center justify-center rounded-2xl ${role.color}`}
               >
                 <role.icon size={24} />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="mb-3 text-xl font-semibold tracking-tight text-slate-950">
                 {role.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed flex-grow">
+              <p className="flex-grow text-sm leading-7 text-slate-600">
                 {role.description}
               </p>
             </Card>

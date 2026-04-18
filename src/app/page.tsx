@@ -8,135 +8,133 @@ import FAQ from "@/components/sections/Faq";
 import { Globe } from "lucide-react";
 import { Button } from "../components/ui/Button";
 
+const STORE_URL = "https://chromewebstore.google.com/detail/placeholder";
+
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
+    <main className="min-h-screen bg-transparent text-slate-950">
+      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200/80 bg-white/75 backdrop-blur-xl">
+        <div className="container mx-auto flex h-16 items-center justify-between px-6">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">
-              h/c
+            <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-slate-950 text-sm font-semibold text-white shadow-sm">
+              SR
             </div>
-            <span className="font-bold text-xl tracking-tight text-gray-900">
-              html-comments
-            </span>
+            <div>
+              <span className="block text-lg font-semibold tracking-tight text-slate-950">
+                SiteReview
+              </span>
+              <span className="block text-xs uppercase tracking-[0.16em] text-slate-500">
+                Chrome extension
+              </span>
+            </div>
           </div>
 
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <div className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+            <a href="#use-cases" className="transition-colors hover:text-slate-950">
+              Use cases
+            </a>
             <a
               href="#features"
-              className="hover:text-indigo-600 transition-colors"
+              className="transition-colors hover:text-slate-950"
             >
               Features
             </a>
             <a
               href="#pricing"
-              className="hover:text-indigo-600 transition-colors"
+              className="transition-colors hover:text-slate-950"
             >
               Pricing
             </a>
-            <a href="#faq" className="hover:text-indigo-600 transition-colors">
+            <a href="#faq" className="transition-colors hover:text-slate-950">
               FAQ
             </a>
           </div>
 
-          <div>
-            <a
-              href="https://chromewebstore.google.com/detail/placeholder"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button size="sm" className="gap-2">
-                <Globe size={16} />
-                Add to Chrome
-              </Button>
-            </a>
-          </div>
+          <Button
+            as="a"
+            href={STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            size="sm"
+          >
+            <Globe size={16} />
+            Add to Chrome
+          </Button>
         </div>
       </nav>
 
       <Hero />
       <WhoItsFor />
       <Features />
+      <Pricing />
+      <FAQ />
 
-      {/* Social Proof Placeholder */}
-      <section className="py-12 border-y border-gray-100 bg-gray-50/30">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-8">
-            Trusted by teams at
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-12 opacity-40 grayscale">
-            {/* Use your intuition for clean logos - standard SVG placeholders work well */}
-            <div className="text-2xl font-bold">Acme</div>
-            <div className="text-2xl font-bold">Globex</div>
-            <div className="text-2xl font-bold">Soylent</div>
-            <div className="text-2xl font-bold">Initech</div>
-            <div className="text-2xl font-bold">Hooli</div>
+      <section className="relative overflow-hidden px-6 pb-24 pt-6">
+        <div className="container mx-auto">
+          <div className="relative overflow-hidden rounded-[36px] border border-slate-200/80 bg-slate-950 px-8 py-14 text-center shadow-[0_30px_90px_-45px_rgba(15,23,42,0.5)] lg:px-14">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(129,140,248,0.28),transparent_45%)]" />
+            <div className="relative z-10 mx-auto max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-200">
+                Start reviewing with more context
+              </p>
+              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-white lg:text-5xl">
+                Keep comments, screenshots, and review sessions in one browser workflow.
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+                Install the extension, use the free plan for smaller reviews,
+                and unlock Pro when you need higher limits and more
+                customization.
+              </p>
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Button
+                  as="a"
+                  href={STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="lg"
+                  className="border-white bg-white text-slate-950 hover:bg-slate-100"
+                >
+                  <Globe size={18} />
+                  Add to Chrome
+                </Button>
+                <Button
+                  as="a"
+                  href="#pricing"
+                  variant="secondary"
+                  size="lg"
+                  className="border-white/20 bg-white/10 text-white hover:bg-white/20"
+                >
+                  Compare plans
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <Pricing />
-      <FAQ />
-
-      {/* Final CTA */}
-      <section className="py-24 bg-indigo-900 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.1)_0%,transparent_100%)] pointer-events-none" />
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to speed up your reviews?
-          </h2>
-          <p className="text-indigo-100 text-xl mb-10 max-w-2xl mx-auto">
-            Join thousands of designers and QA testers who have reclaimed their
-            productivity. Free to start, no credit card required.
-          </p>
-          <a
-            href="https://chromewebstore.google.com/detail/placeholder"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button
-              size="lg"
-              className="bg-white text-indigo-900 hover:bg-indigo-50 border-white gap-2"
-            >
-              <Globe size={20} />
-              Install Extension Now
-            </Button>
-          </a>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-12 border-t border-gray-100">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-2">
-              <div className="h-6 w-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs font-bold font-mono">
-                h/c
+      <footer className="border-t border-slate-200/80 px-6 py-10">
+        <div className="container mx-auto">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-sm font-semibold text-white">
+                SR
               </div>
-              <span className="font-bold text-gray-900 uppercase tracking-tighter">
-                html-comments
-              </span>
+              <div>
+                <p className="text-sm font-semibold tracking-tight text-slate-950">
+                  SiteReview
+                </p>
+                <p className="text-sm text-slate-500">
+                  Chrome extension for anchored page feedback.
+                </p>
+              </div>
             </div>
 
-            <div className="flex gap-8 text-sm text-gray-500">
-              <a href="#" className="hover:text-indigo-600 transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-indigo-600 transition-colors">
-                Terms of Service
-              </a>
-              <a
-                href="mailto:support@example.com"
-                className="hover:text-indigo-600 transition-colors"
-              >
-                Contact
-              </a>
-            </div>
-
-            <div className="text-sm text-gray-400">
-              © 2026 html-comments. All rights reserved.
+            <div className="text-sm leading-7 text-slate-500 md:text-right">
+              <p>Built for design review, QA passes, and frontend handoff.</p>
+              <p>
+                © 2026 SiteReview. Product copy reflects the current extension
+                documentation.
+              </p>
             </div>
           </div>
         </div>

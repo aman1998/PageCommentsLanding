@@ -1,39 +1,41 @@
-import React from "react";
-import { Accordion } from "../ui/Accordion";
+import { Accordion } from "@/components/ui/Accordion";
 
 const faqItems = [
   {
-    question: "Do my clients need to install the extension to see comments?",
+    question: "Where is my review data stored?",
     answer:
-      "No! You can export a full PDF report with screenshots and thread history to share with anyone. If you want them to reply in real-time, they will need the extension installed on their browser.",
+      "Project documentation describes local browser storage and IndexedDB as the primary data layer. That means comments, sessions, templates, and related review data stay in the browser by default.",
   },
   {
-    question: "How does it handle dynamic elements or single-page apps (SPAs)?",
+    question: "Can I share feedback with someone who does not use the extension?",
     answer:
-      "html-comments uses a unique element-path hashing system. Even if your React or Vue app re-renders, the comment stays anchored to the correct component as long as the HTML structure is somewhat stable.",
+      "Yes. You can export a PDF report with comments, screenshots, and metadata when you need to share review output outside the extension.",
   },
   {
-    question: "Is my data secure?",
+    question: "Does it work on localhost, staging, or protected pages?",
     answer:
-      "Absolutely. Comments are stored locally by default and only synced if you choose to enable cloud backup (Pro feature). We never 'scrape' your site or read your code.",
+      "If the page is open in Chrome and the extension has access to it, the workflow can be used on localhost, staging environments, internal tools, and live sites.",
   },
   {
-    question: "Does it work on password-protected or localhost sites?",
+    question: "What is included in Free vs Pro?",
     answer:
-      "Yes! Since it's a browser extension, it has access to whatever your browser is viewing. This makes it perfect for local development, staging servers, and internal dashboards.",
+      "Free includes 10 comments per page, 10 PDF exports per day, 3 saved sites, 1 image per comment, the default template, and limited palettes and viewport presets. Pro removes those core limits and unlocks all templates, palettes, and presets.",
   },
   {
-    question: "Can I customize the viewport presets?",
+    question: "What happens on highly dynamic pages or SPAs?",
     answer:
-      "Pro users can add custom resolutions (e.g., 1440x900 or specific Android devices) to their preset list for more granular testing.",
+      "The extension is designed for on-page review, but very large DOM changes can still affect how precisely older comments map back to the page. For active product review cycles, it works best when the reviewed layout remains reasonably stable between passes.",
   },
 ];
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-24 border-t border-gray-100">
-      <div className="container mx-auto px-6 max-w-3xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+    <section id="faq" className="border-t border-slate-200/80 px-6 py-24">
+      <div className="container mx-auto max-w-3xl">
+        <p className="text-center text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+          FAQ
+        </p>
+        <h2 className="mb-12 mt-4 text-center text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
           Frequently Asked Questions
         </h2>
         <Accordion items={faqItems} />

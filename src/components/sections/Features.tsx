@@ -1,82 +1,115 @@
-import React from "react";
 import {
+  Camera,
+  History,
+  Palette,
+  PanelRight,
   MessageSquare,
   Layout,
-  CheckCircle,
-  Filter,
+  CheckCircle2,
   FileText,
-  MousePointer2,
+  Tags,
 } from "lucide-react";
+import { Card } from "../ui/Card";
 
 const features = [
   {
     icon: MessageSquare,
-    title: "Visual Pin-drop",
+    title: "Anchored comments",
     description:
-      "Click any element on the page to leave a comment. Comments stay anchored to the HTML element even on reload.",
+      "Click directly on the page to leave comments with element context, priority, tags, and status.",
+  },
+  {
+    icon: History,
+    title: "Sessions by site",
+    description:
+      "Keep multiple review sessions for the same origin and switch between them without losing context.",
+  },
+  {
+    icon: PanelRight,
+    title: "Sidebar workflow",
+    description:
+      "Review comments, jump back to pinned notes, and keep the current session organized from one sidebar.",
+  },
+  {
+    icon: Tags,
+    title: "Templates and tags",
+    description:
+      "Speed up repeated feedback with reusable templates while keeping notes structured with tags and priority.",
+  },
+  {
+    icon: Palette,
+    title: "Accent palettes",
+    description:
+      "Adjust the visual style of the extension UI with palette presets that match your preferred workflow.",
   },
   {
     icon: Layout,
-    title: "Viewport Presets",
+    title: "Viewport presets",
     description:
-      "Switch between iPhone, Tablet, and Desktop presets to check responsiveness and leave mobile-specific feedback.",
+      "Switch between device and viewport presets to leave feedback in the exact context you are reviewing.",
   },
   {
-    icon: CheckCircle,
-    title: "Resolve Threads",
+    icon: Camera,
+    title: "Screenshot capture",
     description:
-      "Keep the sidebar tidy. Mark bugs as resolved once they are fixed. Archive or delete old conversations.",
-  },
-  {
-    icon: Filter,
-    title: "Sort & Filter",
-    description:
-      "Quickly find comments by author, date, or resolution status. Search through threads with instant results.",
+      "Capture a focused area on the page and attach it to a comment when visual proof matters.",
   },
   {
     icon: FileText,
     title: "PDF Export",
     description:
-      "Generate a professional PDF summary of all open comments, including screenshots and metadata for documentation.",
+      "Generate a clean report with comments, screenshots, and review metadata that is easy to share outside the browser.",
   },
   {
-    icon: MousePointer2,
-    title: "No-Code Required",
+    icon: CheckCircle2,
+    title: "Free and Pro limits",
     description:
-      "Works on any website. No scripts to install, no libraries to import. Just install the extension and start pinning.",
+      "Start with the free plan, then unlock higher limits, more templates, palettes, and device presets with Pro.",
   },
 ];
 
 export default function Features() {
   return (
-    <section id="features" className="py-24">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-3 gap-x-12 gap-y-16">
-          <div className="lg:col-span-1">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6 sticky top-24">
-              Powerful tools for
-              <br />
-              modern workflows.
-            </h2>
-            <p className="text-gray-600 text-lg">
-              Everything you need to ship faster with zero visual regressions.
-              Designed to fit into your existing team dynamic.
+    <section id="features" className="px-6 py-24">
+      <div className="container mx-auto">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div className="lg:sticky lg:top-24 lg:self-start">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Features
             </p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+              Everything the extension handles during a review.
+            </h2>
+            <p className="mt-4 max-w-xl text-lg leading-8 text-slate-600">
+              The workflow stays inside the browser: pin feedback, move through
+              sessions, capture screenshots, and export structured reports when
+              you need to share the result.
+            </p>
+
+            <div className="mt-8 rounded-[28px] border border-slate-200/80 bg-white/80 p-6 shadow-sm">
+              <p className="text-sm font-semibold text-slate-900">
+                Local-first by default
+              </p>
+              <p className="mt-2 text-sm leading-7 text-slate-600">
+                Product documentation describes browser storage and IndexedDB as
+                the main data layer, so the landing keeps that expectation clear.
+              </p>
+            </div>
           </div>
 
-          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-x-8 gap-y-12">
+          <div className="grid gap-6 sm:grid-cols-2">
             {features.map((feature, index) => (
-              <div key={index}>
-                <div className="h-10 w-10 text-indigo-600 mb-4">
+              <Card key={index} className="h-full">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600">
                   <feature.icon size={32} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="mb-3 text-xl font-semibold tracking-tight text-slate-950">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-sm leading-7 text-slate-600">
                   {feature.description}
                 </p>
-              </div>
+              </Card>
             ))}
           </div>
         </div>

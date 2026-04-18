@@ -64,7 +64,7 @@ export default function Features() {
           <div className="grid gap-6 sm:grid-cols-2">
             {features.map((feature, index) => (
               <Card key={index} className="h-full">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
                   <feature.icon size={32} />
                 </div>
                 <h3 className="mb-3 text-xl font-semibold tracking-tight text-slate-950">

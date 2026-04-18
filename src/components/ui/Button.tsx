@@ -31,7 +31,7 @@ const baseStyles =
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "border-slate-950 bg-slate-950 text-white shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:bg-slate-800 focus:ring-slate-400",
+    "border-[rgb(16_185_129)] bg-[rgb(16_185_129)] text-white shadow-[0_10px_30px_-18px_rgba(16,185,129,0.45)] hover:border-emerald-600 hover:bg-emerald-600 focus:ring-emerald-300",
   secondary:
     "border-slate-200 bg-white/90 text-slate-900 shadow-[0_8px_24px_-20px_rgba(15,23,42,0.28)] hover:border-slate-300 hover:bg-white focus:ring-slate-300",
   outline:

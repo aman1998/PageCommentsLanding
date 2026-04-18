@@ -92,7 +92,7 @@ export default function Pricing() {
                   >
                     <Check
                       size={16}
-                      className={`mt-1 flex-shrink-0 ${tier.popular ? "text-indigo-300" : "text-indigo-600"}`}
+                      className={`mt-1 flex-shrink-0 ${tier.popular ? "text-emerald-300" : "text-emerald-600"}`}
                     />
                     {feature}
                   </li>

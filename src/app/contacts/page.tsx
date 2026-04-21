@@ -1,11 +1,9 @@
 import { SITE_CONFIG } from "@/config/constants";
-import { useTranslations } from "next-intl";
 
 export default function Contacts() {
-  const t = useTranslations("Index");
   return (
-    <div className="max-w-6xl mx-auto min-h-[calc(100vh-14rem)] flex flex-col gap-4 items-center justify-center">
-      <h1 className="text-2xl font-bold">{t("footer.contact")}</h1>
+    <div className="container mx-auto pt-4 sm:pt-8">
+      <h1 className="text-2xl font-bold">Contact</h1>
       <div className="flex flex-col gap-2">
         <a
           href={`https://t.me/${SITE_CONFIG.telegram}`}

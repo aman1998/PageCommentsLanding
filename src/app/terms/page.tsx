@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function TermsOfUse() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto pt-4 sm:pt-8">
       <h1 className="text-2xl sm:text-3xl font-bold mb-6">
         Terms of Use for {SITE_CONFIG.name} Extension
       </h1>

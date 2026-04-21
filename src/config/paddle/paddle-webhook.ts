@@ -9,6 +9,7 @@ import {
   SubscriptionPausedEvent,
   SubscriptionResumedEvent,
   SubscriptionUpdatedEvent,
+  TransactionPaidEvent,
 } from "@paddle/paddle-node-sdk";
 import { createClient } from "../supabase/server-internal";
 
@@ -34,6 +35,9 @@ export class ProcessWebhook {
         break;
       case EventName.SubscriptionPastDue:
         await this.pastDueSubscriptionData(eventData);
+        break;
+      case EventName.TransactionPaid:
+        await this.upsertTransactionData(eventData);
         break;
     }
   }
@@ -208,6 +212,39 @@ export class ProcessWebhook {
           error instanceof Error
             ? error.message
             : "Past due status update failed",
+      };
+    }
+  }
+
+  private async upsertTransactionData(
+    eventData: TransactionPaidEvent,
+  ): Promise<{ success: boolean; error?: string }> {
+    try {
+      const supabase = await createClient();
+
+      const { error } = await supabase
+        .from("paddle_transactions")
+        .upsert({
+          transaction_id: eventData.data.id,
+          status: eventData.data.status,
+          customer_id: eventData.data.customerId,
+          price_id: eventData.data.items[0]?.price?.id ?? null,
+          product_id: eventData.data.items[0]?.price?.productId ?? null,
+          updated_at: new Date().toISOString(),
+        })
+        .select();
+
+      return {
+        success: !error,
+        error: error?.message,
+      };
+    } catch (error) {
+      return {
+        success: false,
+        error:
+          error instanceof Error
+            ? error.message
+            : "One-time payment upsert failed",
       };
     }
   }

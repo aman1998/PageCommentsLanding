@@ -17,14 +17,16 @@ const highlights = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden px-6 pb-20 pt-28 lg:pb-24 lg:pt-36">
+    <section className="relative overflow-hidden px-6 pb-20 pt-4 lg:pb-24 lg:pt-12">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[680px] bg-[radial-gradient(circle_at_top,rgba(148,163,184,0.16),transparent_60%)]" />
 
       <div className="container mx-auto">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
             <div className="max-w-2xl">
-              <Badge className="mb-6">Chrome extension for website review</Badge>
+              <Badge className="mb-6">
+                Chrome extension for website review
+              </Badge>
               <h1 className="max-w-3xl text-5xl font-semibold tracking-[-0.05em] text-slate-950 lg:text-7xl">
                 Keep website feedback on the page.
               </h1>
@@ -192,7 +194,8 @@ export default function Hero() {
                                 PDF export ready
                               </p>
                               <p className="mt-1 text-xs leading-5 text-slate-500">
-                                Includes comment list, screenshots, and metadata.
+                                Includes comment list, screenshots, and
+                                metadata.
                               </p>
                             </div>
                           </div>

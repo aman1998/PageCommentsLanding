@@ -10,9 +10,9 @@ const tiers = [
     description: "A simple starting point for smaller review cycles.",
     features: [
       "10 comments per page",
-      "10 PDF exports per day",
       "3 saved sites with history",
       "1 image per comment",
+      "Limited templates, palettes, and presets",
     ],
     cta: "Start free",
     variant: "secondary" as const,
@@ -22,10 +22,10 @@ const tiers = [
     price: "$25",
     description: "A one-time unlock for heavier team workflows.",
     features: [
-      "Unlimited comments and exports",
-      "Unlimited saved sites and sessions",
-      "More images, templates, palettes, and presets",
-      "No subscription language",
+      "Unlimited comments",
+      "Unlimited sites",
+      "5 images per comment",
+      "All templates, palettes, and presets",
     ],
     cta: "Install and unlock Pro",
     popular: true,
@@ -64,11 +64,15 @@ export default function Pricing() {
               )}
 
               <div className="mb-8">
-                <h3 className={`mb-2 text-xl font-semibold tracking-tight ${tier.popular ? "text-white" : "text-slate-950"}`}>
+                <h3
+                  className={`mb-2 text-xl font-semibold tracking-tight ${tier.popular ? "text-white" : "text-slate-950"}`}
+                >
                   {tier.name}
                 </h3>
                 <div className="flex items-baseline gap-1">
-                  <span className={`text-5xl font-semibold tracking-tight ${tier.popular ? "text-white" : "text-slate-950"}`}>
+                  <span
+                    className={`text-5xl font-semibold tracking-tight ${tier.popular ? "text-white" : "text-slate-950"}`}
+                  >
                     {tier.price}
                   </span>
                   {tier.name === "Pro" && (
@@ -105,7 +109,6 @@ export default function Pricing() {
                 target="_blank"
                 rel="noopener noreferrer"
                 variant={tier.variant}
-                className={`w-full ${tier.popular ? "bg-white text-slate-950 hover:bg-slate-100 border-white" : ""}`}
               >
                 {tier.cta}
               </Button>

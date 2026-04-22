@@ -12,11 +12,12 @@ const Ready = () => {
               Ready to try it
             </p>
             <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
-              Review the page itself, not a pile of screenshots.
+              Review the page
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-              Install SiteReview, start with the free plan, and keep your next
-              round of design, QA, or frontend feedback in one clean flow.
+              Install {SITE_CONFIG.name}, start with the free plan, and keep
+              your next round of design, QA, or frontend feedback in one clean
+              flow.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button

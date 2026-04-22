@@ -4,6 +4,7 @@ import "./globals.css";
 import Ready from "@/components/sections/Ready";
 import Footer from "@/components/sections/Footer";
 import Navigation from "@/components/sections/Navigation";
+import { SITE_CONFIG } from "@/config/constants";
 
 const font = Inter({
   variable: "--font-inter",
@@ -11,9 +12,26 @@ const font = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SiteReview | Chrome extension for page review",
-  description:
-    "SiteReview is a Chrome extension for anchored page comments, screenshots, review sessions, and PDF exports.",
+  title: `${SITE_CONFIG.name} | Chrome extension for page review`,
+  description: `${SITE_CONFIG.description}`,
+  keywords: SITE_CONFIG.keywords,
+  authors: [{ name: SITE_CONFIG.author }],
+  creator: SITE_CONFIG.author,
+  publisher: SITE_CONFIG.author,
+  applicationName: SITE_CONFIG.name,
+  openGraph: {
+    title: `${SITE_CONFIG.name} | Chrome extension for page review`,
+    description: SITE_CONFIG.description,
+  },
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+    other: {
+      rel: "icon",
+      url: "/logo.png",
+    },
+  },
 };
 
 export default function RootLayout({

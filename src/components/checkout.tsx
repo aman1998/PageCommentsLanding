@@ -64,9 +64,7 @@ const Checkout = ({ userEmail, priceId }: Props) => {
     });
   }, [paddle, priceId, userEmail]);
 
-  return (
-    <div className="h-[calc(100vh-13rem)] flex items-center justify-center"></div>
-  );
+  return null;
 };
 
 export default Checkout;

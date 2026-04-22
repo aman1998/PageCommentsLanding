@@ -1,9 +1,11 @@
+import { SITE_CONFIG } from "@/config/constants";
+
 const YOUTUBE_EMBED_URL =
   "https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0";
 
 export default function VideoSection() {
   return (
-    <section className="px-6 py-8 lg:py-12">
+    <section id="demo" className="px-6 py-8 lg:py-12">
       <div className="container mx-auto">
         <div className="mx-auto max-w-5xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
@@ -39,7 +41,7 @@ export default function VideoSection() {
                 <iframe
                   className="h-full w-full"
                   src={YOUTUBE_EMBED_URL}
-                  title="SiteReview demo video"
+                  title={`${SITE_CONFIG.name} demo video`}
                   loading="lazy"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

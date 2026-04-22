@@ -7,15 +7,32 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { SITE_CONFIG } from "@/config/constants";
 
-const STORE_URL = "https://chromewebstore.google.com/detail/placeholder";
 const highlights = [
-  "Pin feedback directly on the page",
   "Review on localhost, staging, and live URLs",
+  "Add comments directly on the page",
   "Export a clean PDF when it is time to share",
 ];
 
 export default function Hero() {
+  const cards = [
+    {
+      title: "In one flow",
+      description:
+        "Organize sessions, switch viewports, and keep the review moving from one sidebar.",
+    },
+    {
+      title: "Build feedback into the page",
+      description:
+        "Add comments directly on the page so it is easier to understand and fix.",
+    },
+    {
+      title: "Ready to share",
+      description:
+        "Export comments, screenshots, and metadata into a clean PDF report.",
+    },
+  ];
   return (
     <section className="relative overflow-hidden px-6 pb-20 pt-4 lg:pb-24 lg:pt-12">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[680px] bg-[radial-gradient(circle_at_top,rgba(148,163,184,0.16),transparent_60%)]" />
@@ -31,9 +48,9 @@ export default function Hero() {
                 Keep website feedback on the page.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 lg:text-xl">
-                SiteReview gives designers, QA, and frontend teams one clear
-                place to review a page, leave comments in context, and share the
-                result without bouncing between screenshots and chat threads.
+                {SITE_CONFIG.name} gives designers, QA, and frontend teams one
+                clear place to review a page, leave comments in context, and
+                share the result in PDF.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -50,7 +67,7 @@ export default function Hero() {
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Button
                   as="a"
-                  href={STORE_URL}
+                  href={SITE_CONFIG.appUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   size="lg"
@@ -65,33 +82,19 @@ export default function Hero() {
               </div>
 
               <div className="mt-10 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-3xl border border-slate-200/80 bg-white/95 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                    In context
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
-                    Click any part of the page and leave feedback where the
-                    issue actually happens.
-                  </p>
-                </div>
-                <div className="rounded-3xl border border-slate-200/80 bg-white/95 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                    In one flow
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
-                    Organize sessions, switch viewports, and keep the review
-                    moving from one sidebar.
-                  </p>
-                </div>
-                <div className="rounded-3xl border border-slate-200/80 bg-white/95 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                    Ready to share
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
-                    Export comments, screenshots, and metadata into a clean PDF
-                    report.
-                  </p>
-                </div>
+                {cards.map((card) => (
+                  <div
+                    key={card.title}
+                    className="rounded-3xl border border-slate-200/80 bg-white/95 p-4"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                      {card.title}
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                      {card.description}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 

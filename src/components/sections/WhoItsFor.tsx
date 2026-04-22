@@ -1,5 +1,6 @@
 import { Bug, Code, Palette } from "lucide-react";
 import { Card } from "../ui/Card";
+import { SITE_CONFIG } from "@/config/constants";
 
 const roles = [
   {
@@ -37,8 +38,9 @@ export default function WhoItsFor() {
             Built for teams that review work in the browser.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-            SiteReview fits the moments where visual feedback is easiest to
-            understand directly on the page, not in a loose thread of messages.
+            {SITE_CONFIG.name} fits the moments where visual feedback is easiest
+            to understand directly on the page, not in a loose thread of
+            messages.
           </p>
         </div>
 

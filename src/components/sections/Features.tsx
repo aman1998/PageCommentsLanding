@@ -1,10 +1,6 @@
-import {
-  Camera,
-  History,
-  MessageSquare,
-  FileText,
-} from "lucide-react";
+import { Camera, History, MessageSquare, FileText } from "lucide-react";
 import { Card } from "../ui/Card";
+import { SITE_CONFIG } from "@/config/constants";
 
 const features = [
   {
@@ -47,7 +43,8 @@ export default function Features() {
             </h2>
             <p className="mt-4 max-w-xl text-lg leading-8 text-slate-600">
               Instead of spreading review work across browser tabs, screenshots,
-              docs, and chat, SiteReview keeps the workflow in one place.
+              docs, and chat, {SITE_CONFIG.name} keeps the workflow in one
+              place.
             </p>
 
             <div className="mt-8 rounded-[28px] border border-slate-200/80 bg-white/95 p-6">

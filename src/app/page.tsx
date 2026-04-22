@@ -12,8 +12,8 @@ export default function LandingPage() {
     <>
       <Hero />
       <VideoSection />
-      <WhoItsFor />
-      <Features />
+      {/* <WhoItsFor /> */}
+      {/* <Features /> */}
       <Pricing />
       <FAQ />
     </>

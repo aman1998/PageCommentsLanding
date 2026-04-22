@@ -6,10 +6,21 @@ const BASE_URL = "https://langlearn.site";
 const VIDEO_URL = "https://www.youtube.com/watch?v=nRukzikUXl0";
 
 export const SITE_CONFIG = {
-  name: "LangLearn",
+  name: "PageComments",
   email: EMAIL,
   telegram: TELEGRAM,
   appUrl: APP_URL,
   baseUrl: BASE_URL,
   videoUrl: VIDEO_URL,
+  description: `PageComments is a Chrome extension for anchored page comments, screenshots, review sessions, and PDF exports.`,
+  keywords: [
+    "chrome extension",
+    "page review",
+    "pdf export",
+    "screenshot",
+    "comment",
+    "review session",
+  ],
+  author: "Amangeldi Rossoneri",
+  copyright: "2026 Amangeldi Rossoneri",
 };

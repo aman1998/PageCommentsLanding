@@ -1,5 +1,6 @@
 import { SITE_CONFIG } from "@/config/constants";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -25,6 +26,21 @@ const Footer = () => {
 
           <div className="text-sm leading-7 text-slate-500 md:text-right">
             <p>Built for design review, QA passes, and frontend handoff.</p>
+            <p className="flex items-center justify-start gap-3 md:justify-end">
+              <Link
+                href="/terms"
+                className="transition-colors hover:text-slate-900"
+              >
+                Terms of Service
+              </Link>
+              <span aria-hidden="true">•</span>
+              <Link
+                href="/privacy"
+                className="transition-colors hover:text-slate-900"
+              >
+                Privacy Policy
+              </Link>
+            </p>
             <p>
               © {new Date().getFullYear()} {SITE_CONFIG.name}.
             </p>

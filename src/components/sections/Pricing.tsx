@@ -9,27 +9,27 @@ const tiers = [
     price: "$0",
     description: "A simple starting point for smaller review cycles.",
     features: [
-      "10 comments per page",
+      "10 comments per site",
       "3 saved sites with history",
       "1 image per comment",
       "Limited templates, palettes, and presets",
     ],
     cta: "Start free",
-    variant: "secondary" as const,
+    variant: "secondary",
   },
   {
     name: "Pro",
     price: "$25",
     description: "A one-time unlock for heavier team workflows.",
     features: [
-      "Unlimited comments",
-      "Unlimited sites",
-      "5 images per comment",
+      "100 comments per site",
+      "100 saved sites with history",
+      "3 images per comment",
       "All templates, palettes, and presets",
     ],
     cta: "Install and unlock Pro",
     popular: true,
-    variant: "primary" as const,
+    variant: "default",
   },
 ];
 
@@ -104,11 +104,10 @@ export default function Pricing() {
               </ul>
 
               <Button
-                as="a"
-                href={STORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant={tier.variant}
+                onClick={() => {
+                  window.open(STORE_URL, "_blank");
+                }}
+                variant={tier.variant as "secondary" | "default"}
               >
                 {tier.cta}
               </Button>

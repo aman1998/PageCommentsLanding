@@ -7,7 +7,7 @@ import Navigation from "@/components/sections/Navigation";
 import { SITE_CONFIG } from "@/config/constants";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const font = Inter({
   variable: "--font-inter",
@@ -43,7 +43,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("h-full", "antialiased", font.variable, "font-sans", geist.variable)}>
+    <html
+      lang="en"
+      className={cn(
+        "h-full",
+        "antialiased",
+        font.variable,
+        "font-sans",
+        geist.variable,
+      )}
+    >
       <body className="min-h-screen text-foreground" suppressHydrationWarning>
         <Navigation />
         <main className="mt-16">{children}</main>

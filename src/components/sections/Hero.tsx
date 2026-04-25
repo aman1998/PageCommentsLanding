@@ -8,6 +8,8 @@ import {
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { SITE_CONFIG } from "@/config/constants";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const highlights = [
   "Review on localhost, staging, and live URLs",
@@ -16,6 +18,7 @@ const highlights = [
 ];
 
 export default function Hero() {
+  const router = useRouter();
   const cards = [
     {
       title: "In one flow",
@@ -66,16 +69,17 @@ export default function Hero() {
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Button
-                  as="a"
-                  href={SITE_CONFIG.appUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  onClick={() => window.open(SITE_CONFIG.appUrl, "_blank")}
                   size="lg"
                 >
                   <Globe size={18} />
                   Add to Chrome
                 </Button>
-                <Button as="a" href="#features" variant="secondary" size="lg">
+                <Button
+                  onClick={() => router.push("/#pricing")}
+                  variant="secondary"
+                  size="lg"
+                >
                   See the essentials
                   <ArrowRight size={18} />
                 </Button>
@@ -97,6 +101,15 @@ export default function Hero() {
                 ))}
               </div>
             </div>
+
+            {/* <div className="relative h-[600px] rounded-3xl  backdrop-blur overflow-hidden">
+              <Image
+                src="/screen2.png"
+                alt="Hero screenshot"
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </div> */}
 
             <div className="relative">
               <div className="absolute -left-10 top-12 hidden h-32 w-32 rounded-full bg-slate-200/40 blur-3xl lg:block" />

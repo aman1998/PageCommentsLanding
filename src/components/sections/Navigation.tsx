@@ -19,7 +19,10 @@ const Navigation = () => {
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-6">
-        <div className="flex items-center gap-2">
+        <div
+          className="flex items-center gap-2 cursor-pointer"
+          onClick={() => router.push("/")}
+        >
           <Image
             src="/logo.png"
             alt={SITE_CONFIG.name}
@@ -68,13 +71,7 @@ const Navigation = () => {
           </a>
         </div>
 
-        <Button
-          as="a"
-          href={SITE_CONFIG.appUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          size="sm"
-        >
+        <Button onClick={() => window.open(SITE_CONFIG.appUrl, "_blank")}>
           <Globe size={16} />
           Add to Chrome
         </Button>

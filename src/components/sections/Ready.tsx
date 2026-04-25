@@ -1,8 +1,11 @@
+"use client";
 import { Globe } from "lucide-react";
 import { Button } from "../ui/Button";
 import { SITE_CONFIG } from "@/config/constants";
+import { useRouter } from "next/navigation";
 
 const Ready = () => {
+  const router = useRouter();
   return (
     <section className="px-6 pb-24 pt-6">
       <div className="container mx-auto">
@@ -20,17 +23,15 @@ const Ready = () => {
               flow.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button
-                as="a"
-                href={SITE_CONFIG.appUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                size="lg"
-              >
+              <Button onClick={() => window.open(SITE_CONFIG.appUrl, "_blank")}>
                 <Globe size={18} />
                 Add to Chrome
               </Button>
-              <Button as="a" href="#pricing" variant="secondary" size="lg">
+              <Button
+                onClick={() => router.push("/#pricing")}
+                variant="secondary"
+                size="lg"
+              >
                 Compare plans
               </Button>
             </div>

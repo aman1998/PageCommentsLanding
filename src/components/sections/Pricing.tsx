@@ -1,7 +1,7 @@
+"use client";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-
-const STORE_URL = "https://chromewebstore.google.com/detail/placeholder";
+import { SITE_CONFIG } from "@/config/constants";
 
 const tiers = [
   {
@@ -105,7 +105,7 @@ export default function Pricing() {
 
               <Button
                 onClick={() => {
-                  window.open(STORE_URL, "_blank");
+                  window.open(SITE_CONFIG.appUrl, "_blank");
                 }}
                 variant={tier.variant as "secondary" | "default"}
               >

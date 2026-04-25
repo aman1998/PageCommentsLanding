@@ -5,14 +5,15 @@ export async function GET() {
     const supabase = await createClient();
     const user = await supabase.auth.getUser();
     if (user.data.user?.email) {
-      const customersData = await supabase
-        .from("customers")
+      const onePaymentData = await supabase
+        .from("one_payments")
         .select("customer_id,email")
         .eq("email", user.data.user?.email)
-        .single();
+        .limit(1)
+        .maybeSingle();
 
-      if (customersData?.data?.customer_id) {
-        return Response.json({ customerId: customersData?.data?.customer_id });
+      if (onePaymentData?.data?.customer_id) {
+        return Response.json({ customerId: onePaymentData.data.customer_id });
       }
 
       return Response.json({ error: "Customer not found" }, { status: 404 });

@@ -27,28 +27,18 @@ export async function GET(req: Request) {
       return Response.json({ error: "unauthorized user" }, { status: 401 });
     }
 
-    const { data: customer, error: customerError } = await supabase
-      .from("customers")
-      .select("customer_id")
-      .eq("email", user.email)
-      .single();
-
-    if (customerError || !customer?.customer_id) {
-      return Response.json({ hasOnePayment: false });
-    }
-
-    const { data: transaction, error: transactionError } = await supabase
-      .from("paddle_transactions")
+    const { data: payment, error: paymentError } = await supabase
+      .from("one_payments")
       .select("transaction_id")
-      .eq("customer_id", customer.customer_id)
+      .eq("email", user.email)
       .limit(1)
       .maybeSingle();
 
-    if (transactionError) {
+    if (paymentError) {
       return Response.json({ error: "Internal server error" }, { status: 500 });
     }
 
-    return Response.json({ hasOnePayment: Boolean(transaction) });
+    return Response.json({ hasOnePayment: Boolean(payment) });
   } catch (error) {
     console.error("One-time payment check error:", error);
     return Response.json(

@@ -22,50 +22,28 @@ export async function GET(req: Request) {
       return Response.json({ error: "unauthorized" }, { status: 401 });
     }
 
-    // Ищем по email пользователя
-    const { data: customerData, error: customerError } = await supabase
-      .from("customers")
+    const { data: paymentData, error: paymentError } = await supabase
+      .from("one_payments")
       .select("customer_id, email")
       .eq("email", user.email)
+      .limit(1)
       .maybeSingle();
 
-    if (customerError || !customerData) {
+    if (paymentError || !paymentData?.customer_id) {
       console.error(
         "Customer lookup error:",
-        customerError?.message || "No customer found",
+        paymentError?.message || "No customer found",
       );
       return Response.json(
         {
           error: "Customer not found",
-          details: "No subscription data found for this email",
+          details: "No one-time payment found for this email",
         },
         { status: 404 },
       );
     }
 
-    const { data: subscriptionData, error: subscriptionError } = await supabase
-      .from("subscriptions")
-      .select("subscription_id")
-      .eq("customer_id", customerData.customer_id)
-      .single();
-
-    if (subscriptionError || !subscriptionData) {
-      console.error(
-        "Subscription lookup error:",
-        subscriptionError?.message || "No subscription found",
-      );
-      return Response.json(
-        { error: "Subscription not found", details: "No subscription found" },
-        { status: 404 },
-      );
-    }
-
-    // const subscriptionIds = subscriptionData.subscription_id
-    //   ? [subscriptionData.subscription_id]
-    //   : [];
-
-    // Создаем портал
-    const portalUrl = await createPaddlePortal(customerData.customer_id, []);
+    const portalUrl = await createPaddlePortal(paymentData.customer_id, []);
     return Response.json({ url: portalUrl });
   } catch (error) {
     console.error("Portal generation error:", error);

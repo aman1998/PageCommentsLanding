@@ -1,18 +1,8 @@
 import { createClientWithToken } from "@/config/supabase/server-internal";
 
-const getBearerToken = (req: Request): string | null => {
-  const authHeader = req.headers.get("authorization");
-
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return null;
-  }
-
-  return authHeader.slice("Bearer ".length).trim();
-};
-
 export async function GET(req: Request) {
   try {
-    const token = getBearerToken(req);
+    const token = req.headers.get("authorization");
     if (!token) {
       return Response.json({ error: "unauthorized header" }, { status: 401 });
     }

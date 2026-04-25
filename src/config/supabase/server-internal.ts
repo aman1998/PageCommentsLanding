@@ -36,7 +36,7 @@ export async function createClientWithToken(token: string) {
     {
       global: {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: token,
         },
       },
     },

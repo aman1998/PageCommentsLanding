@@ -5,23 +5,23 @@ import { SITE_CONFIG } from "@/config/constants";
 const roles = [
   {
     icon: Palette,
-    title: "Design review",
+    title: "Design and content reviews",
     description:
-      "Comment on layout, spacing, hierarchy, and copy without leaving the page you are reviewing.",
+      "Mark spacing, hierarchy, copy, and visual polish directly on the live page instead of rewriting feedback in chat.",
     color: "bg-violet-50 text-violet-700",
   },
   {
     icon: Bug,
-    title: "QA passes",
+    title: "QA and bug reports",
     description:
-      "Pin issues on localhost, staging, or production and keep each pass organized in one session.",
+      "Pin issues on localhost, staging, or production with screenshots, labels, and the page context needed to reproduce them.",
     color: "bg-rose-50 text-rose-700",
   },
   {
     icon: Code,
-    title: "Frontend handoff",
+    title: "Client and team handoff",
     description:
-      "Keep developer feedback tied to the UI so fixes are clearer, faster, and easier to verify.",
+      "Collect comments into a clean PDF so founders, clients, designers, and developers can agree on what needs to change.",
     color: "bg-sky-50 text-sky-700",
   },
 ];
@@ -35,12 +35,11 @@ export default function WhoItsFor() {
             Use cases
           </p>
           <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
-            Built for teams that review work in the browser.
+            Built for anyone reviewing websites in Chrome.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-            {SITE_CONFIG.name} fits the moments where visual feedback is easiest
-            to understand directly on the page, not in a loose thread of
-            messages.
+            {SITE_CONFIG.name} helps you turn vague website feedback into
+            comments people can see, fix, and export without leaving the page.
           </p>
         </div>
 

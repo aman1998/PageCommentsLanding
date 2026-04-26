@@ -5,27 +5,27 @@ import { SITE_CONFIG } from "@/config/constants";
 const features = [
   {
     icon: MessageSquare,
-    title: "Anchored comments",
+    title: "Comments pinned to the page",
     description:
-      "Leave feedback exactly where it matters so everyone sees the issue in the right context.",
+      "Click any spot on a website and leave feedback in context, without sending people a separate screenshot or doc.",
   },
   {
     icon: History,
-    title: "Sessions by page or site",
+    title: "Site and page history",
     description:
-      "Keep separate review passes organized without losing history or mixing feedback across rounds.",
+      "Switch between all-site feedback and page-specific notes so review rounds stay grouped where they belong.",
   },
   {
     icon: Camera,
-    title: "Screenshots when words are not enough",
+    title: "Screenshots attached to comments",
     description:
-      "Capture a focused area and attach proof to a comment when visual detail matters.",
+      "Attach a screen capture to a comment when spacing, layout, copy, or visual bugs need proof.",
   },
   {
     icon: FileText,
-    title: "Clean PDF export",
+    title: "PDF reports for handoff",
     description:
-      "Turn a review session into a polished report with comments, images, and key metadata.",
+      "Export comments, screenshots, labels, and page details into a clean report for clients or teammates.",
   },
 ];
 
@@ -39,12 +39,12 @@ export default function Features() {
               Features
             </p>
             <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
-              The essentials for fast review cycles.
+              Everything you need to review a website in place.
             </h2>
             <p className="mt-4 max-w-xl text-lg leading-8 text-slate-600">
-              Instead of spreading review work across browser tabs, screenshots,
-              docs, and chat, {SITE_CONFIG.name} keeps the workflow in one
-              place.
+              {SITE_CONFIG.name} turns the current page into a shared feedback
+              layer, so comments, screenshots, priorities, and exports stay in
+              one browser workflow.
             </p>
 
             <div className="mt-8 rounded-[28px] border border-slate-200/80 bg-white/95 p-6">
@@ -52,8 +52,8 @@ export default function Features() {
                 Works where teams actually review
               </p>
               <p className="mt-2 text-sm leading-7 text-slate-600">
-                Use it on localhost, staging, internal tools, and live websites
-                as long as the page is open in Chrome.
+                Review localhost, staging, internal tools, and live websites as
+                long as the page is open in Chrome.
               </p>
             </div>
           </div>

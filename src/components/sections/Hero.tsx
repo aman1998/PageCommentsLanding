@@ -1,21 +1,30 @@
 import {
   ArrowRight,
-  FileText,
   Globe,
-  MessageSquare,
-  MonitorSmartphone,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { SITE_CONFIG } from "@/config/constants";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/Carousel";
 
 const highlights = [
   "Review on localhost, staging, and live URLs",
   "Add comments directly on the page",
   "Export a clean PDF when it is time to share",
 ];
+
+const heroScreenshots = [
+  {
+    src: "/screen2.png",
+    alt: "Page Comments browser extension sidebar with pinned feedback",
+  },
+] as const;
 
 export default function Hero() {
   const router = useRouter();
@@ -102,133 +111,40 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* <div className="relative h-[600px] rounded-3xl  backdrop-blur overflow-hidden">
-              <Image
-                src="/screen2.png"
-                alt="Hero screenshot"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </div> */}
-
             <div className="relative">
-              <div className="absolute -left-10 top-12 hidden h-32 w-32 rounded-full bg-slate-200/40 blur-3xl lg:block" />
-              <div className="absolute -bottom-8 right-6 hidden h-40 w-40 rounded-full bg-slate-100 blur-3xl lg:block" />
+              <div className="absolute -left-10 top-12 hidden h-40 w-40 rounded-full bg-emerald-200/50 blur-3xl lg:block" />
+              <div className="absolute -bottom-8 right-6 hidden h-48 w-48 rounded-full bg-slate-200/70 blur-3xl lg:block" />
 
-              <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white/95 p-3  backdrop-blur">
-                <div className="rounded-[28px] border border-slate-200 bg-slate-50/90">
-                  <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
-                    <div className="flex items-center gap-2">
-                      <span className="h-2.5 w-2.5 rounded-full bg-rose-300" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
-                    </div>
-                    <div className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-500">
-                      staging.example.com
-                    </div>
-                  </div>
-
-                  <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_280px]">
-                    <div className="relative min-h-[420px] border-b border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-6 lg:border-b-0 lg:border-r">
-                      <div className="space-y-5">
-                        <div className="h-10 w-36 rounded-2xl bg-slate-900" />
-                        <div className="space-y-2">
-                          <div className="h-4 w-full rounded-full bg-slate-200" />
-                          <div className="h-4 w-10/12 rounded-full bg-slate-200" />
-                          <div className="h-4 w-7/12 rounded-full bg-slate-200" />
+              <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white/95 p-3 shadow-2xl shadow-slate-950/10 backdrop-blur">
+                <Carousel
+                  opts={{ align: "start", loop: heroScreenshots.length > 1 }}
+                  className="overflow-hidden rounded-[28px] border border-slate-200 bg-slate-50/90"
+                >
+                  <CarouselContent className="-ml-0">
+                    {heroScreenshots.map((screenshot) => (
+                      <CarouselItem key={screenshot.src} className="pl-0">
+                        <div className="relative aspect-[4/3] min-h-[360px] overflow-hidden rounded-[28px] bg-slate-100 sm:min-h-[460px]">
+                          <Image
+                            src={screenshot.src}
+                            alt={screenshot.alt}
+                            fill
+                            priority
+                            sizes="(min-width: 1024px) 46vw, 100vw"
+                            className="object-contain"
+                          />
                         </div>
-                        <div className="grid gap-4 sm:grid-cols-2">
-                          <div className="rounded-3xl border border-slate-200 bg-white p-4">
-                            <div className="h-24 rounded-2xl bg-slate-100" />
-                          </div>
-                          <div className="rounded-3xl border border-slate-200 bg-white p-4">
-                            <div className="h-24 rounded-2xl bg-slate-100" />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="absolute left-8 top-32 rounded-2xl border border-slate-200 bg-white px-4 py-3">
-                        <div className="flex items-start gap-3">
-                          <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-700">
-                            <MessageSquare size={16} />
-                          </div>
-                          <div>
-                            <p className="text-sm font-semibold text-slate-900">
-                              Tighten spacing above the hero CTA.
-                            </p>
-                            <p className="mt-1 text-xs text-slate-500">
-                              Comment pinned to the page
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="absolute bottom-8 right-8 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700">
-                        Resolved in session 03
-                      </div>
-                    </div>
-
-                    <div className="bg-white p-5">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                            Sidebar
-                          </p>
-                          <p className="mt-1 text-lg font-semibold tracking-tight text-slate-900">
-                            Homepage review
-                          </p>
-                        </div>
-                        <div className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
-                          4 open
-                        </div>
-                      </div>
-
-                      <div className="mt-5 space-y-3">
-                        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                          <div className="flex items-start gap-3">
-                            <div className="rounded-full bg-slate-200 p-2 text-slate-700">
-                              <MonitorSmartphone size={16} />
-                            </div>
-                            <div>
-                              <p className="text-sm font-semibold text-slate-900">
-                                Viewport preset
-                              </p>
-                              <p className="mt-1 text-xs leading-5 text-slate-500">
-                                iPhone 15 Pro selected for mobile review.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                          <div className="flex items-start gap-3">
-                            <div className="rounded-full bg-slate-200 p-2 text-slate-700">
-                              <FileText size={16} />
-                            </div>
-                            <div>
-                              <p className="text-sm font-semibold text-slate-900">
-                                PDF export ready
-                              </p>
-                              <p className="mt-1 text-xs leading-5 text-slate-500">
-                                Includes comment list, screenshots, and
-                                metadata.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                            Session summary
-                          </p>
-                          <p className="mt-2 text-sm leading-6 text-slate-600">
-                            Comments, screenshots, and review history stay
-                            organized in one browser workflow.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
+                <div className="pointer-events-none absolute inset-x-10 bottom-4 h-16 rounded-full bg-white/35 blur-2xl" />
+                <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-1.5">
+                  {heroScreenshots.map((screenshot) => (
+                    <span
+                      key={screenshot.src}
+                      className="h-1.5 w-6 rounded-full bg-slate-900/30"
+                    />
+                  ))}
                 </div>
               </div>
             </div>

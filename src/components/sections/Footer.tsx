@@ -40,6 +40,20 @@ const Footer = () => {
               >
                 Privacy Policy
               </Link>
+              <span aria-hidden="true">•</span>
+              <Link
+                href="/refund-policy"
+                className="transition-colors hover:text-slate-900"
+              >
+                Refund Policy
+              </Link>
+              <span aria-hidden="true">•</span>
+              <Link
+                href="/contacts"
+                className="transition-colors hover:text-slate-900"
+              >
+                Contacts
+              </Link>
             </p>
             <p>
               © {new Date().getFullYear()} {SITE_CONFIG.name}.

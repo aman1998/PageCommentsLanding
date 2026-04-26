@@ -20,7 +20,7 @@ const Navigation = () => {
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-6">
         <div
-          className="flex items-center gap-2 cursor-pointer"
+          className="flex items-center gap-0 md:gap-2 cursor-pointer"
           onClick={() => router.push("/")}
         >
           <Image
@@ -28,8 +28,14 @@ const Navigation = () => {
             alt={SITE_CONFIG.name}
             width={48}
             height={48}
+            className="w-10 h-10 md:w-12 md:h-12"
           />
-          <div>
+          <div className="block md:hidden">
+            <span className="block text-sm font-semibold tracking-tight text-slate-950">
+              {SITE_CONFIG.name}
+            </span>
+          </div>
+          <div className="hidden md:block">
             <span className="block text-lg font-semibold tracking-tight text-slate-950">
               {SITE_CONFIG.name}
             </span>

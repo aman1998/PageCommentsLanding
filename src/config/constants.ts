@@ -3,7 +3,7 @@ const APP_URL =
 const TELEGRAM = "rossoneri98";
 const EMAIL = "1998.amangeldi@gmail.com";
 const BASE_URL = "https://pagecomments.site";
-const VIDEO_URL = "https://www.youtube.com/watch?v=nRukzikUXl0";
+const VIDEO_URL = "https://www.youtube.com/watch?v=ZK-rNEhJIDs";
 
 export const SITE_CONFIG = {
   name: "PageComments",
@@ -12,14 +12,16 @@ export const SITE_CONFIG = {
   appUrl: APP_URL,
   baseUrl: BASE_URL,
   videoUrl: VIDEO_URL,
-  description: `PageComments is a Chrome extension for anchored page comments, screenshots, review sessions, and PDF exports.`,
+  description: `Pin comments on any website, add screenshots, and export clean PDF feedback reports from Chrome.`,
   keywords: [
-    "chrome extension",
-    "page review",
-    "pdf export",
-    "screenshot",
-    "comment",
-    "review session",
+    "Chrome extension for website feedback",
+    "website review tool",
+    "page comments extension",
+    "annotate web pages Chrome",
+    "website QA feedback tool",
+    "PDF feedback report",
+    "website annotation tool",
+    "visual feedback tool",
   ],
   author: "Amangeldi Rossoneri",
   copyright: "2026 Amangeldi Rossoneri",

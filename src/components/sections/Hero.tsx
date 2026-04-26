@@ -1,151 +1,119 @@
-import {
-  ArrowRight,
-  Globe,
-} from "lucide-react";
+import { ArrowRight, Globe, Play } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { SITE_CONFIG } from "@/config/constants";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/Carousel";
-
-const highlights = [
-  "Review on localhost, staging, and live URLs",
-  "Add comments directly on the page",
-  "Export a clean PDF when it is time to share",
-];
-
-const heroScreenshots = [
-  {
-    src: "/screen2.png",
-    alt: "Page Comments browser extension sidebar with pinned feedback",
-  },
-] as const;
+import { useMemo, useState } from "react";
 
 export default function Hero() {
   const router = useRouter();
-  const cards = [
-    {
-      title: "In one flow",
-      description:
-        "Organize sessions, switch viewports, and keep the review moving from one sidebar.",
-    },
-    {
-      title: "Build feedback into the page",
-      description:
-        "Add comments directly on the page so it is easier to understand and fix.",
-    },
-    {
-      title: "Ready to share",
-      description:
-        "Export comments, screenshots, and metadata into a clean PDF report.",
-    },
-  ];
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoEmbedUrl = useMemo(() => {
+    const matchedId = SITE_CONFIG.videoUrl.match(
+      /(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+    )?.[1];
+    if (!matchedId) return "";
+    return `https://www.youtube-nocookie.com/embed/${matchedId}?autoplay=1&rel=0`;
+  }, []);
+  const handlePlayDemo = () => {
+    setIsVideoPlaying(true);
+  };
+
   return (
-    <section className="relative overflow-hidden px-6 pb-20 pt-4 lg:pb-24 lg:pt-12">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[680px] bg-[radial-gradient(circle_at_top,rgba(148,163,184,0.16),transparent_60%)]" />
+    <section
+      id="demo"
+      className="relative overflow-hidden px-6 pb-24 pt-14 lg:pb-28 lg:pt-24"
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[720px] bg-[radial-gradient(circle_at_top,rgba(15,23,42,0.08),transparent_62%)]" />
+      <div className="pointer-events-none absolute -left-12 top-32 hidden h-56 w-56 rounded-full bg-emerald-300/25 blur-3xl lg:block" />
+      <div className="pointer-events-none absolute right-8 top-24 hidden h-56 w-56 rounded-full bg-sky-300/25 blur-3xl lg:block" />
 
       <div className="container mx-auto">
         <div className="mx-auto max-w-6xl">
-          <div className="grid items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
+          <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
             <div className="max-w-2xl">
-              <Badge className="mb-6">
-                Chrome extension for website review
+              <Badge className="mb-7 border-sky-200 bg-sky-50/70 text-sky-700">
+                Chrome extension for website reviews
               </Badge>
-              <h1 className="max-w-3xl text-5xl font-semibold tracking-[-0.05em] text-slate-950 lg:text-7xl">
-                Keep website feedback on the page.
+              <h1 className="max-w-3xl text-5xl font-semibold tracking-[-0.055em] text-slate-950 lg:text-7xl">
+                Review websites directly on the page.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 lg:text-xl">
-                {SITE_CONFIG.name} gives designers, QA, and frontend teams one
-                clear place to review a page, leave comments in context, and
-                share the result in PDF.
+                Pin comments to real page elements, add screenshots, and export
+                a clean PDF report without switching tools.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                {highlights.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-slate-200 bg-white/90 px-4 py-2 text-sm font-medium text-slate-700"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <Button
                   onClick={() => window.open(SITE_CONFIG.appUrl, "_blank")}
                   size="lg"
+                  className="h-12 rounded-full px-6 text-base shadow-lg shadow-emerald-500/30"
                 >
                   <Globe size={18} />
                   Add to Chrome
                 </Button>
-                <Button
-                  onClick={() => router.push("/#pricing")}
-                  variant="secondary"
+                {/* <Button
+                  onClick={() => router.push("/#demo")}
+                  variant="ghost"
                   size="lg"
+                  className="h-12 rounded-full px-4 text-slate-700"
                 >
-                  See the essentials
+                  Watch demo
                   <ArrowRight size={18} />
-                </Button>
+                </Button> */}
               </div>
 
-              <div className="mt-10 grid gap-4 sm:grid-cols-3">
-                {cards.map((card) => (
-                  <div
-                    key={card.title}
-                    className="rounded-3xl border border-slate-200/80 bg-white/95 p-4"
-                  >
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                      {card.title}
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">
-                      {card.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <p className="mt-4 text-sm font-medium text-slate-500">
+                Works on localhost, staging, internal tools, and live websites.
+              </p>
             </div>
 
-            <div className="relative">
-              <div className="absolute -left-10 top-12 hidden h-40 w-40 rounded-full bg-emerald-200/50 blur-3xl lg:block" />
-              <div className="absolute -bottom-8 right-6 hidden h-48 w-48 rounded-full bg-slate-200/70 blur-3xl lg:block" />
+            <div className="relative min-w-0 w-full">
+              <div className="absolute -left-10 top-16 hidden h-40 w-40 rounded-full bg-emerald-200/35 blur-3xl lg:block" />
+              <div className="absolute -bottom-8 right-6 hidden h-52 w-52 rounded-full bg-sky-200/45 blur-3xl lg:block" />
 
-              <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white/95 p-3 shadow-2xl shadow-slate-950/10 backdrop-blur">
-                <Carousel
-                  opts={{ align: "start", loop: heroScreenshots.length > 1 }}
-                  className="overflow-hidden rounded-[28px] border border-slate-200 bg-slate-50/90"
-                >
-                  <CarouselContent className="-ml-0">
-                    {heroScreenshots.map((screenshot) => (
-                      <CarouselItem key={screenshot.src} className="pl-0">
-                        <div className="relative aspect-[4/3] min-h-[360px] overflow-hidden rounded-[28px] bg-slate-100 sm:min-h-[460px]">
-                          <Image
-                            src={screenshot.src}
-                            alt={screenshot.alt}
-                            fill
-                            priority
-                            sizes="(min-width: 1024px) 46vw, 100vw"
-                            className="object-contain"
-                          />
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                </Carousel>
-                <div className="pointer-events-none absolute inset-x-10 bottom-4 h-16 rounded-full bg-white/35 blur-2xl" />
-                <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-1.5">
-                  {heroScreenshots.map((screenshot) => (
-                    <span
-                      key={screenshot.src}
-                      className="h-1.5 w-6 rounded-full bg-slate-900/30"
-                    />
-                  ))}
+              <div className="relative mx-auto w-full max-w-[640px] overflow-hidden rounded-[28px] border border-slate-200/80 bg-white/90 p-2 shadow-2xl shadow-slate-950/10 backdrop-blur sm:rounded-[36px] sm:p-3">
+                <div className="group relative w-full overflow-hidden rounded-[22px] border border-slate-200 bg-slate-950 sm:rounded-[30px]">
+                  <div className="relative w-full aspect-video sm:aspect-[4/3] sm:min-h-[320px] lg:min-h-[420px]">
+                    {isVideoPlaying && videoEmbedUrl ? (
+                      <iframe
+                        className="h-full w-full"
+                        src={videoEmbedUrl}
+                        title="PageComments product demo"
+                        loading="lazy"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <>
+                        <Image
+                          src="/screen2.png"
+                          alt="Product demo preview"
+                          fill
+                          sizes="(min-width: 1024px) 46vw, 100vw"
+                          className="object-cover opacity-65 transition-transform duration-700 group-hover:scale-[1.015]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/22 to-slate-950/62" />
+                        <button
+                          type="button"
+                          onClick={handlePlayDemo}
+                          aria-label="Play product demo inside preview"
+                          className="absolute inset-0 flex items-center justify-center"
+                        >
+                          <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/55 bg-white/12 text-white shadow-xl shadow-black/25 backdrop-blur-md transition-transform duration-200 hover:scale-105 sm:h-[72px] sm:w-[72px]">
+                            <Play
+                              size={22}
+                              className="ml-0.5 sm:h-[26px] sm:w-[26px]"
+                            />
+                          </span>
+                        </button>
+                      </>
+                    )}
+                  </div>
                 </div>
+                <div className="pointer-events-none absolute inset-x-10 bottom-4 h-16 rounded-full bg-white/35 blur-2xl" />
               </div>
             </div>
           </div>

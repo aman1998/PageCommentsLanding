@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Geist } from "next/font/google";
 import "./globals.css";
-import Ready from "@/components/sections/Ready";
 import Footer from "@/components/sections/Footer";
 import Navigation from "@/components/sections/Navigation";
 import { SITE_CONFIG } from "@/config/constants";
@@ -15,7 +14,7 @@ const font = Inter({
 });
 
 export const metadata: Metadata = {
-  title: `${SITE_CONFIG.name} | Chrome extension for page review`,
+  title: `${SITE_CONFIG.name} - Website Feedback Inside Chrome`,
   description: `${SITE_CONFIG.description}`,
   keywords: SITE_CONFIG.keywords,
   authors: [{ name: SITE_CONFIG.author }],
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
   publisher: SITE_CONFIG.author,
   applicationName: SITE_CONFIG.name,
   openGraph: {
-    title: `${SITE_CONFIG.name} | Chrome extension for page review`,
+    title: `${SITE_CONFIG.name} - Website Feedback Inside Chrome`,
     description: SITE_CONFIG.description,
   },
   icons: {
@@ -59,7 +58,6 @@ export default function RootLayout({
       >
         <Navigation />
         <main className="mt-16 flex-1">{children}</main>
-        {/* <Ready /> */}
         <Footer />
       </body>
     </html>

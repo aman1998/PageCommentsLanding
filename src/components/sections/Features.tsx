@@ -1,77 +1,56 @@
-import { Camera, History, MessageSquare, FileText } from "lucide-react";
-import { Card } from "../ui/Card";
-import { SITE_CONFIG } from "@/config/constants";
-
-const features = [
+const useCases = [
   {
-    icon: MessageSquare,
-    title: "Comments pinned to the page",
+    title: "Design QA",
     description:
-      "Click any spot on a website and leave feedback in context, without sending people a separate screenshot or doc.",
+      "Mark spacing, hierarchy, copy, and visual polish on the live page.",
   },
   {
-    icon: History,
-    title: "Site and page history",
+    title: "Frontend fixes",
     description:
-      "Switch between all-site feedback and page-specific notes so review rounds stay grouped where they belong.",
+      "Attach issues to the exact element developers need to update.",
   },
   {
-    icon: Camera,
-    title: "Screenshots attached to comments",
-    description:
-      "Attach a screen capture to a comment when spacing, layout, copy, or visual bugs need proof.",
-  },
-  {
-    icon: FileText,
-    title: "PDF reports for handoff",
-    description:
-      "Export comments, screenshots, labels, and page details into a clean report for clients or teammates.",
+    title: "Client handoff",
+    description: "Turn review notes into a PDF people can open anywhere.",
   },
 ];
 
 export default function Features() {
   return (
-    <section id="features" className="px-6 py-24">
+    <section id="features" className="px-6 py-12 lg:py-20">
       <div className="container mx-auto">
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <div className="lg:sticky lg:top-24 lg:self-start">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-              Features
-            </p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
-              Everything you need to review a website in place.
-            </h2>
-            <p className="mt-4 max-w-xl text-lg leading-8 text-slate-600">
-              {SITE_CONFIG.name} turns the current page into a shared feedback
-              layer, so comments, screenshots, priorities, and exports stay in
-              one browser workflow.
-            </p>
-
-            <div className="mt-8 rounded-[28px] border border-slate-200/80 bg-white/95 p-6">
-              <p className="text-sm font-semibold text-slate-900">
-                Works where teams actually review
+        <div className="mx-auto max-w-6xl">
+          <div className="relative grid gap-10 overflow-hidden rounded-[36px] border border-slate-200/80 bg-white/85 p-6 shadow-sm shadow-slate-950/[0.03] lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:p-10">
+            <div className="pointer-events-none absolute -left-10 top-8 h-44 w-44 rounded-full bg-emerald-200/30 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-12 right-2 h-48 w-48 rounded-full bg-sky-200/35 blur-3xl" />
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                Built for review rounds
               </p>
-              <p className="mt-2 text-sm leading-7 text-slate-600">
-                Review localhost, staging, internal tools, and live websites as
-                long as the page is open in Chrome.
+              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
+                Stop turning visual feedback into chat threads.
+              </h2>
+              <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">
+                Use PageComments when feedback needs context: design QA, copy
+                review, frontend fixes, client approvals, and bug reports.
               </p>
             </div>
-          </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            {features.map((feature, index) => (
-              <Card key={index} className="h-full">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
-                  <feature.icon size={32} />
+            <div className="grid gap-4">
+              {useCases.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-3xl border border-slate-200/80 bg-gradient-to-b from-white to-slate-50/70 p-5"
+                >
+                  <h3 className="text-base font-semibold tracking-tight text-slate-900">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="mb-3 text-xl font-semibold tracking-tight text-slate-950">
-                  {feature.title}
-                </h3>
-                <p className="text-sm leading-7 text-slate-600">
-                  {feature.description}
-                </p>
-              </Card>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

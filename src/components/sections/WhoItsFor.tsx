@@ -28,18 +28,19 @@ const roles = [
 
 export default function WhoItsFor() {
   return (
-    <section id="use-cases" className="px-6 py-24">
+    <section id="use-cases" className="px-6 2">
       <div className="container mx-auto">
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
             Use cases
           </p>
           <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-950 lg:text-5xl">
-            Built for anyone reviewing websites in Chrome.
+            Built for fast website review cycles.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-            {SITE_CONFIG.name} helps you turn vague website feedback into
-            comments people can see, fix, and export without leaving the page.
+            Use {SITE_CONFIG.name} whenever visual feedback needs context:
+            design QA, copy review, frontend fixes, client approvals, or bug
+            reports.
           </p>
         </div>
 

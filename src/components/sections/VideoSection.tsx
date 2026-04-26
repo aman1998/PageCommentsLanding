@@ -21,7 +21,7 @@ export default function VideoSection() {
         </div>
 
         <div className="mx-auto mt-12 max-w-5xl">
-          <div className="relative overflow-hidden rounded-[36px] border border-slate-200/80 bg-white/95 p-3 shadow-[0_30px_90px_-54px_rgba(15,23,42,0.32)]">
+          <div className="relative overflow-hidden rounded-[36px] border border-slate-200/80 bg-white/95 p-3">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.18),transparent_70%)]" />
 
             <div className="relative overflow-hidden rounded-[30px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)]">

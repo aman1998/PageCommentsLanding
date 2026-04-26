@@ -1,4 +1,5 @@
 import { Accordion } from "@/components/ui/Accordion";
+import { LIFETIME_NAME } from "@/config/constants";
 
 const faqItems = [
   {
@@ -17,9 +18,8 @@ const faqItems = [
       "If the page is open in Chrome and the extension has access to it, the workflow can be used on localhost, staging environments, internal tools, and live sites.",
   },
   {
-    question: "What is included in Free vs Pro?",
-    answer:
-      "Free covers lighter reviews with limits on comments, exports, saved sites, and images. Pro unlocks higher limits plus the full set of templates, palettes, and viewport presets with a one-time purchase.",
+    question: `What is included in Free vs ${LIFETIME_NAME}?`,
+    answer: `Free covers lighter reviews with limits on comments, exports, saved sites, and images. ${LIFETIME_NAME} unlocks higher limits plus the full set of templates, palettes, and viewport presets with a one-time purchase.`,
   },
 ];
 

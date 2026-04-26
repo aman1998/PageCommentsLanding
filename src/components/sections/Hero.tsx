@@ -115,7 +115,7 @@ export default function Hero() {
               <div className="absolute -left-10 top-12 hidden h-32 w-32 rounded-full bg-slate-200/40 blur-3xl lg:block" />
               <div className="absolute -bottom-8 right-6 hidden h-40 w-40 rounded-full bg-slate-100 blur-3xl lg:block" />
 
-              <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white/95 p-3 shadow-[0_26px_80px_-48px_rgba(15,23,42,0.35)] backdrop-blur">
+              <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white/95 p-3  backdrop-blur">
                 <div className="rounded-[28px] border border-slate-200 bg-slate-50/90">
                   <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
                     <div className="flex items-center gap-2">
@@ -147,7 +147,7 @@ export default function Hero() {
                         </div>
                       </div>
 
-                      <div className="absolute left-8 top-32 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-[0_20px_50px_-32px_rgba(15,23,42,0.35)]">
+                      <div className="absolute left-8 top-32 rounded-2xl border border-slate-200 bg-white px-4 py-3">
                         <div className="flex items-start gap-3">
                           <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-700">
                             <MessageSquare size={16} />
@@ -163,7 +163,7 @@ export default function Hero() {
                         </div>
                       </div>
 
-                      <div className="absolute bottom-8 right-8 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-[0_16px_30px_-24px_rgba(15,23,42,0.35)]">
+                      <div className="absolute bottom-8 right-8 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700">
                         Resolved in session 03
                       </div>
                     </div>

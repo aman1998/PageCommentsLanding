@@ -53,10 +53,13 @@ export default function RootLayout({
         geist.variable,
       )}
     >
-      <body className="min-h-screen text-foreground" suppressHydrationWarning>
+      <body
+        className="flex flex-col min-h-screen text-foreground"
+        suppressHydrationWarning
+      >
         <Navigation />
-        <main className="mt-16">{children}</main>
-        <Ready />
+        <main className="mt-16 flex-1">{children}</main>
+        {/* <Ready /> */}
         <Footer />
       </body>
     </html>

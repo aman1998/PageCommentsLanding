@@ -1,7 +1,17 @@
 "use client";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { SITE_CONFIG } from "@/config/constants";
+import {
+  FREE_MAX_COMMENTS_PER_PAGE,
+  FREE_MAX_HISTORIES,
+  FREE_MAX_IMAGES_PER_COMMENT,
+  LIFETIME_NAME,
+  PRO_LIFETIME_PRICE,
+  PRO_MAX_COMMENTS_PER_PAGE,
+  PRO_MAX_HISTORIES,
+  PRO_MAX_IMAGES_PER_COMMENT,
+  SITE_CONFIG,
+} from "@/config/constants";
 
 const tiers = [
   {
@@ -9,22 +19,22 @@ const tiers = [
     price: "$0",
     description: "A simple starting point for smaller review cycles.",
     features: [
-      "10 comments per site",
-      "3 saved sites with history",
-      "1 image per comment",
+      `${FREE_MAX_COMMENTS_PER_PAGE} comments per one website`,
+      `${FREE_MAX_HISTORIES} active websites`,
+      `${FREE_MAX_IMAGES_PER_COMMENT} images per comment`,
       "Limited templates, palettes, and presets",
     ],
     cta: "Start free",
     variant: "secondary",
   },
   {
-    name: "Pro",
-    price: "$25",
+    name: LIFETIME_NAME,
+    price: `$${PRO_LIFETIME_PRICE}`,
     description: "A one-time unlock for heavier team workflows.",
     features: [
-      "100 comments per site",
-      "100 saved sites with history",
-      "3 images per comment",
+      `${PRO_MAX_COMMENTS_PER_PAGE} comments per one website`,
+      `${PRO_MAX_HISTORIES} active websites`,
+      `${PRO_MAX_IMAGES_PER_COMMENT} images per comment`,
       "All templates, palettes, and presets",
     ],
     cta: "Install and unlock Pro",
@@ -55,10 +65,10 @@ export default function Pricing() {
           {tiers.map((tier, index) => (
             <div
               key={index}
-              className={`relative flex flex-col rounded-[32px] border p-8 ${tier.popular ? "border-slate-900 bg-slate-950 text-white shadow-[0_24px_70px_-42px_rgba(15,23,42,0.45)]" : "border-slate-200/80 bg-white/95 text-slate-950 shadow-[0_18px_50px_-38px_rgba(15,23,42,0.22)]"}`}
+              className={`relative flex flex-col rounded-[32px] border p-8 ${tier.popular ? "border-slate-900 bg-slate-950 text-white" : "border-slate-200/80 bg-white/95 text-slate-950"}`}
             >
               {tier.popular && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-900 shadow-[0_12px_24px_-18px_rgba(15,23,42,0.35)]">
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-900">
                   Recommended
                 </span>
               )}
